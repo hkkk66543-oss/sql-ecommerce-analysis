@@ -1,0 +1,3 @@
+"recall_priority","user_count","user_ratio","total_gmv","gmv_ratio","avg_recency_days","avg_frequency","avg_monetary","avg_review_score"
+"低优先级召回","21936","0.9644","1182709.1","0.9323","395.51","1.01","53.92","4.2"
+"中优先级召回","809","0.0356","85843.42","0.0677","411.14","1.03","106.11","4.14"

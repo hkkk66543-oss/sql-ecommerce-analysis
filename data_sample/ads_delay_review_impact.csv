@@ -1,0 +1,3 @@
+"delivery_status","order_count","avg_review_score","bad_review_rate","good_review_rate","avg_total_delivery_days"
+"delayed","7649","2.55","0.5462","0.3419","30.75"
+"not_delayed","87710","4.21","0.1137","0.8037","10.39"
