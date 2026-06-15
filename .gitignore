@@ -1,0 +1,23 @@
+# 原始大数据文件
+raw_data/
+data/
+
+# Office / Power BI 临时文件
+*.tmp
+*.bak
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Python / 环境缓存
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+env/
+.env
+
+# 数据库配置
+*.ini
+*.conf
+*.sql.bak
