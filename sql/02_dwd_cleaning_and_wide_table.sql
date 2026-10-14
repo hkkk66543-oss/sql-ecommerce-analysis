@@ -1,3 +1,18 @@
+-- Prerequisite for dwd_order_detail: aggregate multiple reviews to order grain.
+-- Reconstructed policy: mean score; latest timestamps; review_count counts source rows.
+-- This policy is not recoverable from ADS samples; see reproduction notes.
+USE olist_ecommerce;
+DROP TABLE IF EXISTS dwd_order_review_summary;
+CREATE TABLE dwd_order_review_summary AS
+SELECT order_id,
+       AVG(review_score) AS review_score,
+       DATE_FORMAT(MAX(STR_TO_DATE(review_creation_date, '%c/%e/%Y %H:%i')), '%c/%e/%Y %H:%i') AS review_creation_date,
+       DATE_FORMAT(MAX(STR_TO_DATE(review_answer_timestamp, '%c/%e/%Y %H:%i')), '%c/%e/%Y %H:%i') AS review_answer_timestamp,
+       COUNT(*) AS review_count
+FROM order_reviews
+GROUP BY order_id;
+ALTER TABLE dwd_order_review_summary ADD PRIMARY KEY (order_id);
+
 -- 1. 订单明细宽表
 -- Navicat 查询：宽表
 -- 输出表：dwd_order_detail
