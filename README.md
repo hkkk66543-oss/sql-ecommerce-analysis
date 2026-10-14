@@ -349,9 +349,9 @@ SQL 执行顺序：
 ## 13. 项目复现步骤
 
 1. 从 Kaggle 下载 Olist 原始数据集。
-2. 在 MySQL 中创建 `olist_ecommerce` 数据库。
-3. 使用 Navicat 或 MySQL 导入原始 CSV 数据。
-4. 按顺序执行 `sql/` 文件夹中的 SQL 脚本。
+2. 在独立 MySQL 8.0 测试环境执行 `sql/01_create_database_and_tables.sql` 创建数据库和原始表。
+3. 按 [SQL 补全与复现说明](docs/sql_reproduction.md) 转换日期，再使用 Navicat 导入 CSV。
+4. 执行 `02`、`03`，使用只读 `06_validate_business_overview.sql` 校验经营指标；其余 ADS 按原顺序执行 `04`、`05`。现有脚本含 DROP TABLE，请勿直接在已有分析库重跑。
 5. 生成 DWD 清洗明细表和 ADS 汇总指标表。
 6. 将 ADS 表导出为 CSV，或使用 Power BI 直接连接 MySQL。
 7. 在 Power BI 中构建经营总览、物流履约、用户运营三页看板。
@@ -379,3 +379,4 @@ SQL 执行顺序：
 5. 从交易规模、物流体验、用户价值三个角度输出业务洞察。
 
 该项目能够体现电商业务理解、SQL 数据建模能力、指标体系设计能力和 Power BI 可视化表达能力。
+
